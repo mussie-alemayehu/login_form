@@ -193,16 +193,20 @@ class _LoginPageState extends State<LoginPage> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
-                    backgroundColor: _isLoading ? Colors.grey : null,
+                    foregroundColor: Colors.white,
+                    backgroundColor: _isLoading
+                        ? Colors.grey
+                        : Theme.of(context).primaryColor,
                   ),
                   child: _isLoading
-                      ? const SizedBox(
+                      ? SizedBox(
                           height: 20,
                           width: 20,
                           child: CircularProgressIndicator(
                             strokeWidth: 2,
-                            valueColor:
-                                AlwaysStoppedAnimation<Color>(Colors.white),
+                            valueColor: AlwaysStoppedAnimation<Color>(
+                              Theme.of(context).primaryColor,
+                            ),
                           ),
                         )
                       : const Text(
@@ -215,8 +219,10 @@ class _LoginPageState extends State<LoginPage> {
                   onPressed: () {
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(
-                          content: Text(
-                              'Forgot Password clicked (not implemented)')),
+                        content: Text(
+                          'Forgot Password clicked (not implemented)',
+                        ),
+                      ),
                     );
                   },
                   child: const Text('Forgot Password?'),
