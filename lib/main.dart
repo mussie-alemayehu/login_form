@@ -1,6 +1,7 @@
 // ignore_for_file: constant_identifier_names
 
 import 'package:flutter/material.dart';
+import 'package:login_form/custom_drawer.dart';
 
 const String CORRECT_EMAIL = 'mussie@gmail.com';
 const String CORRECT_PASSWORD = 'password123';
@@ -18,6 +19,10 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Login Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        colorScheme: ColorScheme.light(
+          secondary: const Color(0xFF1A1A1A),
+          secondaryContainer: const Color(0xFF252525),
+        ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: const LoginPage(),
@@ -114,6 +119,7 @@ class _LoginPageState extends State<LoginPage> {
       appBar: AppBar(
         title: const Text('Login Form'),
       ),
+      drawer: const CustomDrawer(title: 'Login Form'),
       body: Center(
         child: SingleChildScrollView(
           // Allows scrolling if content overflows
